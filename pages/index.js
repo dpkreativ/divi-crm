@@ -10,6 +10,11 @@ export default function Home() {
       </Head>
 
       <nav className="text-4xl">Divi-CRM</nav>
+      <main>
+        <ul>
+          <li>hello</li>
+        </ul>
+      </main>
     </div>
   );
 }
