@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Card from "../components/Card";
 
 export default function Home() {
   return (
@@ -11,9 +12,7 @@ export default function Home() {
 
       <nav className="text-4xl">Divi-CRM</nav>
       <main>
-        <ul>
-          <li>hello</li>
-        </ul>
+        <Card />
       </main>
     </div>
   );
