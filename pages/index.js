@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Card from "../components/Card";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -10,8 +11,18 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <nav className="text-4xl">Divi-CRM</nav>
-      <main>
+      <nav className="mb-8 flex justify-between">
+        <div className="logo font-bold">Divi-CRM</div>
+        <Link href="/">
+          <button className="bg-green-700 text-white rounded-md shadow-md text-sm px-4 py-1 cursor-pointer">
+            Add New
+          </button>
+        </Link>
+      </nav>
+      <main className="grid lg:grid-cols-2 gap-4 place-items-center">
+        <Card />
+        <Card />
+        <Card />
         <Card />
       </main>
     </div>
