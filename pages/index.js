@@ -19,7 +19,7 @@ export default function Home() {
           </button>
         </Link>
       </nav>
-      <main className="grid lg:grid-cols-2 gap-4 place-items-center">
+      <main className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 place-items-center">
         <Card />
         <Card />
         <Card />
