@@ -7,6 +7,9 @@ module.exports = {
         "doodle-1":
           "url(https://res.cloudinary.com/dpkreativ/image/upload/o_10/v1627045399/divi-crm/doodlebg_k5w7bx.png)",
       }),
+      fontFamily: {
+        sans: ["Ubuntu"],
+      },
     },
   },
   variants: {
