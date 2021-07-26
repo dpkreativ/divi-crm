@@ -6,7 +6,7 @@ const Card = ({ contact }) => {
       <div className="w-20 h-20 border-2 border-red-400 rounded-full -mt-10 mx-auto flex items-center justify-center p-1">
         <div className="w-full h-full bg-gray-600 rounded-full overflow-hidden">
           <img
-            src="https://res.cloudinary.com/dpkreativ/image/upload/v1616357794/IMG_-oi62yk_wtfop2.jpg"
+            src="https://res.cloudinary.com/dpkreativ/image/upload/o_20/v1627300464/divi-crm/Profile_avatar_placeholder_large_rbnj5w.png"
             alt="profile image"
             className="object-cover w-full h-full"
           />
