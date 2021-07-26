@@ -7,7 +7,7 @@ const addNewContact = async (firstname, lastname, phone, mail, bio) => {
 };
 
 const getContacts = async () => {
-  // TODO: write function to get all contacts from database
+  // TODO: write function to get all contacts from database --- DONE!
   const { data } = await faunaClient.query(
     q.Map(
       q.Paginate(q.Documents(q.Collection("divi_crm"))),
@@ -25,7 +25,13 @@ const getContacts = async () => {
 };
 
 const getContactById = async (id) => {
-  // TODO: write function to get contact by id
+  // TODO: write function to get contact by id --- DONE!
+  const contact = await faunaClient.query(
+    q.Get(q.Ref(q.Collection("divi_crm"), id))
+  );
+  contact.id = contact.ref.id;
+  delete contact.ref;
+  return contact;
 };
 
 const updateContact = async (id, firstname, lastname, phone, mail, bio) => {
