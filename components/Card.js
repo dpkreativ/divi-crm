@@ -1,6 +1,6 @@
 // import React from "react";
 
-const Card = () => {
+const Card = ({ contact }) => {
   return (
     <div className="bg-purple-100 w-36 rounded-xl m-6 flex flex-col pb-4 justify-between items-center">
       <div className="w-20 h-20 border-2 border-red-400 rounded-full -mt-10 mx-auto flex items-center justify-center p-1">
@@ -14,9 +14,9 @@ const Card = () => {
       </div>
       <div className="flex flex-col items-center">
         <div className="font-bold text-lg mt-2">
-          Divine <span>O.</span>
+          {contact.data.firstname} <span>O.</span>
         </div>
-        <div>0902 182 4073</div>
+        <div>{contact.data.phone}</div>
       </div>
 
       <button className="bg-gray-900 text-white px-4 py-1 cursor-pointer text-xs w-max rounded-lg mt-4">
