@@ -8,6 +8,20 @@ const addNewContact = async (firstname, lastname, phone, mail, bio) => {
 
 const getContacts = async () => {
   // TODO: write function to get all contacts from database
+  const { data } = await faunaClient.query(
+    q.Map(
+      q.Paginate(q.Documents(q.Collection("divi_crm"))),
+      q.Lambda("ref", q.Get(q.Var("ref")))
+    )
+  );
+
+  const contacts = data.map((contact) => {
+    contact.id = contact.ref.id;
+    delete contact.ref;
+    return contact;
+  });
+
+  return contacts;
 };
 
 const getContactById = async (id) => {
