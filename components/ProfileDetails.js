@@ -7,6 +7,8 @@ import {
 import "react-vertical-timeline-component/style.min.css";
 
 const ProfileDetails = ({ contact }) => {
+  const { firstname, lastname, phone, mail, bio, entries } = contact.data;
+  // const { entry } = entries;
   return (
     <div>
       <div className="profile-header flex items-center rounded-full bg-doodle-1 bg-cover bg-center bg-gray-200 shadow-lg">
@@ -21,9 +23,9 @@ const ProfileDetails = ({ contact }) => {
         </div>
         <div>
           <h1 className="font-bold text-2xl md:text-4xl text-gray-800">
-            {contact.data.firstname}
+            {firstname}
           </h1>
-          <p>{contact.data.lastname}</p>
+          <p>{lastname}</p>
         </div>
       </div>
       <section className="mt-8">
@@ -31,8 +33,8 @@ const ProfileDetails = ({ contact }) => {
         <div className="mt-2 md:mt-4 grid md:grid-cols-2 gap-2">
           <div className="phone-number flex items-center">
             <MdPhone />
-            <div className="mx-2 text-lg">{contact.data.phone}</div>
-            <Link href={`tel:${contact.data.phone}`}>
+            <div className="mx-2 text-lg">{phone}</div>
+            <Link href={`tel:${phone}`}>
               <button className="bg-green-700 text-white rounded-full py-1 px-4 text-xs ml-2">
                 call
               </button>
@@ -40,14 +42,16 @@ const ProfileDetails = ({ contact }) => {
           </div>
           <div className="email flex items-center">
             <MdEmail />
-            <div className="mx-2 text-lg">{contact.data.mail}</div>
-            <button className="bg-blue-700 text-white rounded-full py-1 px-4 text-xs ml-2">
-              send mail
-            </button>
+            <div className="mx-2 text-lg">{mail}</div>
+            <Link href={`mailto:${mail}`}>
+              <button className="bg-blue-700 text-white rounded-full py-1 px-4 text-xs ml-2">
+                send mail
+              </button>
+            </Link>
           </div>
         </div>
         <h3 className="font-bold text-lg mt-2 md:mt-4">Bio</h3>
-        <div>{contact.data.bio}</div>
+        <div>{bio}</div>
       </section>
       <section className="mt-8">
         <h2 className="font-bold text-xl md:text-2xl">Timeline</h2>
@@ -57,43 +61,26 @@ const ProfileDetails = ({ contact }) => {
           </button>
         </div>
         <div className="entries">
+          {/* TODO: use the time of editing or creating the entry as its ID, then sort the entry based on the ids and display by the most recent */}
           <VerticalTimeline>
-            <VerticalTimelineElement
-              className="vertical-timeline-element--work"
-              contentStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
-              contentArrowStyle={{
-                borderRight: "7px solid  rgb(33, 150, 243)",
-              }}
-              iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
-              icon={<MdWork />}
-            >
-              <h3 className="vertical-timeline-element-title">
-                Creative Director
-              </h3>
-              <h4 className="vertical-timeline-element-subtitle">Miami, FL</h4>
-              <p>
-                Creative Direction, User Experience, Visual Design, Project
-                Management, Team Leading
-              </p>
-            </VerticalTimelineElement>
-            <VerticalTimelineElement
-              className="vertical-timeline-element--work"
-              contentStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
-              contentArrowStyle={{
-                borderRight: "7px solid  rgb(33, 150, 243)",
-              }}
-              iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
-              icon={<MdWork />}
-            >
-              <h3 className="vertical-timeline-element-title">
-                Creative Director
-              </h3>
-              <h4 className="vertical-timeline-element-subtitle">Miami, FL</h4>
-              <p>
-                Creative Direction, User Experience, Visual Design, Project
-                Management, Team Leading
-              </p>
-            </VerticalTimelineElement>
+            {entries &&
+              entries.map((entry) => (
+                <VerticalTimelineElement
+                  className="vertical-timeline-element--work"
+                  contentStyle={{
+                    background: "rgb(33, 150, 243)",
+                    color: "#fff",
+                  }}
+                  contentArrowStyle={{
+                    borderRight: "7px solid  rgb(33, 150, 243)",
+                  }}
+                  iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
+                  icon={<MdWork />}
+                  key={entry._id}
+                >
+                  {entry.entry}
+                </VerticalTimelineElement>
+              ))}
           </VerticalTimeline>
         </div>
       </section>
