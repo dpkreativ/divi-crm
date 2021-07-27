@@ -2,11 +2,7 @@ import React from "react";
 import ProfileDetails from "../components/ProfileDetails";
 
 const NewContact = () => {
-  return (
-    <div>
-      <ProfileDetails />
-    </div>
-  );
+  return <div>New Profile</div>;
 };
 
 export default NewContact;
