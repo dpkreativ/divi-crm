@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { MdEmail, MdPhone, MdWork } from "react-icons/md";
+import { MdEmail, MdHome, MdPhone, MdWork } from "react-icons/md";
 import {
   VerticalTimeline,
   VerticalTimelineElement,
@@ -11,6 +11,11 @@ const ProfileDetails = ({ contact }) => {
   // const { entry } = entries;
   return (
     <div>
+      <Link href="/" className="cursor-pointer">
+        <button className="mt-4 mb-8 flex items-center">
+          <MdHome /> <div className="mx-2">Go to Home</div>
+        </button>
+      </Link>
       <div className="profile-header flex items-center rounded-full bg-doodle-1 bg-cover bg-center bg-gray-200 shadow-lg">
         <div className="w-24 h-24 md:w-28 md:h-28 lg:w-36 lg:h-36 border-2 border-gray-500 rounded-full flex items-center justify-center p-1 mr-4">
           <div className="w-full h-full bg-gray-600 rounded-full overflow-hidden">
