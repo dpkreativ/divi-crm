@@ -1,4 +1,4 @@
-// import React from "react";
+import Link from "next/link";
 
 const Card = ({ contact }) => {
   return (
@@ -19,9 +19,11 @@ const Card = ({ contact }) => {
         <div>{contact.data.phone}</div>
       </div>
 
-      <button className="bg-gray-900 text-white px-4 py-1 cursor-pointer text-xs w-max rounded-lg mt-4">
-        View Contact
-      </button>
+      <Link href={`/profile/${contact.id}`}>
+        <button className="bg-gray-900 text-white px-4 py-1 cursor-pointer text-xs w-max rounded-lg mt-4">
+          View Contact
+        </button>
+      </Link>
     </div>
   );
 };
