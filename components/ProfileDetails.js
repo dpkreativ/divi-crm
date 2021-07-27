@@ -1,5 +1,12 @@
 import Link from "next/link";
-import { MdEmail, MdHome, MdPhone, MdWork } from "react-icons/md";
+import {
+  MdDeleteForever,
+  MdEmail,
+  MdHome,
+  MdModeEdit,
+  MdPhone,
+  MdWork,
+} from "react-icons/md";
 import {
   VerticalTimeline,
   VerticalTimelineElement,
@@ -84,6 +91,12 @@ const ProfileDetails = ({ contact }) => {
                   key={entry._id}
                 >
                   {entry.entry}
+                  <div className="grid justify-items-end">
+                    <div className="grid grid-cols-2 w-max gap-4 pt-4 text-xl">
+                      <MdDeleteForever />
+                      <MdModeEdit />
+                    </div>
+                  </div>
                 </VerticalTimelineElement>
               ))}
           </VerticalTimeline>
