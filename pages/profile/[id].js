@@ -5,12 +5,7 @@ import ProfileDetails from "../../components/ProfileDetails";
 export default function Home({ contact }) {
   return (
     <div>
-      <Head>
-        <title>profile</title>
-      </Head>
-      <main>
-        <ProfileDetails contact={contact} />
-      </main>
+      <ProfileDetails contact={contact} />
     </div>
   );
 }
