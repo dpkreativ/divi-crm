@@ -101,8 +101,12 @@ const ProfileDetails = ({ contact }) => {
                     {entry.entry}
                     <div className="grid justify-items-end">
                       <div className="grid grid-cols-2 w-max gap-4 pt-4 text-xl">
-                        <MdDeleteForever />
-                        <MdModeEdit />
+                        <button>
+                          <MdDeleteForever />
+                        </button>
+                        <button>
+                          <MdModeEdit />
+                        </button>
                       </div>
                     </div>
                   </VerticalTimelineElement>
