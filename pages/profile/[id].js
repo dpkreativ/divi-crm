@@ -1,10 +1,9 @@
-import Head from "next/head";
 import { getContactById } from "../../utils/Fauna";
 import ProfileDetails from "../../components/ProfileDetails";
 
 export default function Home({ contact }) {
   return (
-    <div>
+    <div className="px-4 md:px-8 py-8">
       <ProfileDetails contact={contact} />
     </div>
   );
