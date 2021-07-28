@@ -81,36 +81,38 @@ const ProfileDetails = ({ contact }) => {
             {/* TODO: use the time of editing or creating the entry as its ID, then sort the entry based on the ids and display by the most recent */}
             <VerticalTimeline>
               {entries &&
-                entries.map((entry) => (
-                  <VerticalTimelineElement
-                    className="vertical-timeline-element--work"
-                    contentStyle={{
-                      background: "rgb(33, 150, 243)",
-                      color: "#fff",
-                    }}
-                    contentArrowStyle={{
-                      borderRight: "7px solid  rgb(33, 150, 243)",
-                    }}
-                    iconStyle={{
-                      background: "rgb(33, 150, 243)",
-                      color: "#fff",
-                    }}
-                    icon={<MdWork />}
-                    key={entry._id}
-                  >
-                    {entry.entry}
-                    <div className="grid justify-items-end">
-                      <div className="grid grid-cols-2 w-max gap-4 pt-4 text-xl">
-                        <button>
-                          <MdDeleteForever />
-                        </button>
-                        <button>
-                          <MdModeEdit />
-                        </button>
+                entries
+                  .sort((a, b) => b._id - a._id)
+                  .map((entry) => (
+                    <VerticalTimelineElement
+                      className="vertical-timeline-element--work"
+                      contentStyle={{
+                        background: "rgb(33, 150, 243)",
+                        color: "#fff",
+                      }}
+                      contentArrowStyle={{
+                        borderRight: "7px solid  rgb(33, 150, 243)",
+                      }}
+                      iconStyle={{
+                        background: "rgb(33, 150, 243)",
+                        color: "#fff",
+                      }}
+                      icon={<MdWork />}
+                      key={entry._id}
+                    >
+                      {entry.entry}
+                      <div className="grid justify-items-end">
+                        <div className="grid grid-cols-2 w-max gap-4 pt-4 text-xl">
+                          <button>
+                            <MdDeleteForever />
+                          </button>
+                          <button>
+                            <MdModeEdit />
+                          </button>
+                        </div>
                       </div>
-                    </div>
-                  </VerticalTimelineElement>
-                ))}
+                    </VerticalTimelineElement>
+                  ))}
             </VerticalTimeline>
           </div>
         </section>
