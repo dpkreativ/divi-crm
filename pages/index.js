@@ -5,7 +5,6 @@ import useSWR from "swr";
 
 export default function Home() {
   const { data: contacts } = useSWR("./api/getContacts");
-  console.log(contacts);
   return (
     <div className="container">
       <Head>
@@ -24,9 +23,19 @@ export default function Home() {
       </nav>
       <main className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 place-items-center">
         {contacts &&
-          contacts.map((contact) => (
-            <Card key={contact.id} contact={contact} />
-          ))}
+          contacts
+            .sort((a, b) => {
+              let fa = a.data.firstname,
+                fb = b.data.firstname;
+              if (fa < fb) {
+                return -1;
+              } else if (fa > fb) {
+                return +1;
+              } else {
+                return 0;
+              }
+            })
+            .map((contact) => <Card key={contact.id} contact={contact} />)}
       </main>
     </div>
   );
