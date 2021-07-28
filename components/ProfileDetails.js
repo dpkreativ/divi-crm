@@ -28,21 +28,31 @@ const ProfileDetails = ({ contact }) => {
             <MdHome /> <div className="mx-2">Go to Home</div>
           </button>
         </Link>
-        <div className="profile-header flex items-center rounded-full bg-doodle-1 bg-cover bg-center bg-gray-200 shadow-lg">
-          <div className="w-24 h-24 md:w-28 md:h-28 lg:w-36 lg:h-36 border-2 border-gray-500 rounded-full flex items-center justify-center p-1 mr-4">
-            <div className="w-full h-full bg-gray-600 rounded-full overflow-hidden">
-              <img
-                src="https://res.cloudinary.com/dpkreativ/image/upload/o_20/v1627300464/divi-crm/Profile_avatar_placeholder_large_rbnj5w.png"
-                alt="profile image"
-                className="object-cover w-full h-full"
-              />
+        <div className="profile-header flex items-center justify-between rounded-full bg-doodle-1 bg-cover bg-center bg-gray-200 shadow-lg">
+          <div className="flex items-center">
+            <div className="w-24 h-24 md:w-28 md:h-28 lg:w-36 lg:h-36 border-2 border-gray-500 rounded-full flex items-center justify-center p-1 mr-4">
+              <div className="w-full h-full bg-gray-600 rounded-full overflow-hidden">
+                <img
+                  src="https://res.cloudinary.com/dpkreativ/image/upload/o_20/v1627300464/divi-crm/Profile_avatar_placeholder_large_rbnj5w.png"
+                  alt="profile image"
+                  className="object-cover w-full h-full"
+                />
+              </div>
+            </div>
+            <div>
+              <h1 className="font-bold text-2xl md:text-4xl text-gray-800">
+                {firstname}
+              </h1>
+              <p>{lastname}</p>
             </div>
           </div>
-          <div>
-            <h1 className="font-bold text-2xl md:text-4xl text-gray-800">
-              {firstname}
-            </h1>
-            <p>{lastname}</p>
+          <div className=" grid md:grid-cols-2 px-8 text-xl">
+            <button className="m-1.5 md:mx-4">
+              <MdDeleteForever />
+            </button>
+            <button className="m-1.5 md:mx-4">
+              <MdModeEdit />
+            </button>
           </div>
         </div>
         <section className="mt-8">
