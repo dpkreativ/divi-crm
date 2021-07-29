@@ -3,7 +3,11 @@ const faunaClient = new faunadb.Client({ secret: process.env.FAUNA_SECRET });
 const q = faunadb.query;
 
 const addNewContact = async (firstname, lastname, phone, mail, bio) => {
-  // TODO: write function to add a new contact
+  return await faunaClient.query(
+    q.Create(q.Collection("divi_crm"), {
+      data: { firstname, lastname, phone, mail, bio },
+    })
+  );
 };
 
 const getContacts = async () => {
