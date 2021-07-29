@@ -6,7 +6,7 @@ const CustomLabel = ({ htmlFor, children }) => {
   );
 };
 
-const CustomInput = ({ type, name, id, placeholder, value }) => {
+const CustomInput = ({ type, name, id, placeholder, value, ref }) => {
   return (
     <input
       type={type}
@@ -15,17 +15,19 @@ const CustomInput = ({ type, name, id, placeholder, value }) => {
       className="border-green-500 border-b-2 px-4 py-2 outline-none w-full shadow-lg"
       placeholder={placeholder}
       value={value}
+      ref={ref}
     />
   );
 };
 
-const CustomTextArea = ({ placeholder }) => {
+const CustomTextArea = ({ placeholder, ref }) => {
   return (
     <textarea
       placeholder={placeholder}
       className="w-full border-b-2 border-green-500 outline-none p-4 shadow-lg"
       rows="5"
       cols="20"
+      ref={ref}
     />
   );
 };
