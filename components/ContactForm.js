@@ -54,7 +54,10 @@ const ContactForm = () => {
         </div>
       </div>
       <div className="grid gap-4 mb-10">
-        <button className="bg-green-500 hover:bg-green-700 text-white rounded-full p-4">
+        <button
+          className="bg-green-500 hover:bg-green-700 text-white rounded-full p-4"
+          type="submit"
+        >
           Submit
         </button>
       </div>
