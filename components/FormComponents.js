@@ -20,14 +20,15 @@ const CustomInput = ({ type, name, id, placeholder, value, ref }) => {
   );
 };
 
-const CustomTextArea = ({ placeholder, ref }) => {
+const CustomTextArea = ({ placeholder, ref, name, id }) => {
   return (
     <textarea
       placeholder={placeholder}
       className="w-full border-b-2 border-green-500 outline-none p-4 shadow-lg"
       rows="5"
-      cols="20"
       ref={ref}
+      name={name}
+      id={id}
     />
   );
 };

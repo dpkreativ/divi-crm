@@ -18,8 +18,8 @@ const ContactForm = () => {
           <Input
             placeholder="Enter last name"
             type="text"
-            name="firstname"
-            id="firstname"
+            name="lastname"
+            id="lastname"
           />
         </div>
       </div>
@@ -45,12 +45,11 @@ const ContactForm = () => {
       </div>
       <div className="grid gap-4 mb-10">
         <div>
-          <Label htmlFor="firstname">Short Bio</Label>
+          <Label htmlFor="bio">Short Bio</Label>
           <TextArea
             placeholder="Write some key points to note about this particular contact"
-            type="text"
-            name="firstname"
-            id="firstname"
+            name="bio"
+            id="bio"
           />
         </div>
       </div>
