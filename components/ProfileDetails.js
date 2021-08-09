@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import Head from "next/head";
 import Link from "next/link";
 import {
@@ -16,7 +17,24 @@ import "react-vertical-timeline-component/style.min.css";
 
 const ProfileDetails = ({ contact }) => {
   const { firstname, lastname, phone, mail, bio, entries } = contact.data;
-  // const { entry } = entries;
+
+  const router = useRouter();
+
+  const deleteContact = async () => {
+    try {
+      await fetch("/api/deleteContact", {
+        method: "DELETE",
+        body: JSON.stringify({ id: contact.id }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      router.push("/");
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div>
       <Head>
@@ -47,7 +65,7 @@ const ProfileDetails = ({ contact }) => {
             </div>
           </div>
           <div className=" grid md:grid-cols-2 px-8 text-xl">
-            <button className="m-1.5 md:mx-4">
+            <button className="m-1.5 md:mx-4" onClick={deleteContact}>
               <MdDeleteForever />
             </button>
             <button className="m-1.5 md:mx-4">
