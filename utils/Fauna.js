@@ -40,10 +40,14 @@ const getContactById = async (id) => {
 
 const updateContact = async (id, firstname, lastname, phone, mail, bio) => {
   // TODO: write function to edit contact selected by id
+  return await faunaClient.query(
+    q.Update(q.Ref(q.Collection("divi_crm"), id), {
+      data: { firstname, lastname, phone, mail, bio },
+    })
+  );
 };
 
 const deleteContact = async (id) => {
-  // TODO: write function to delete contact selected by id
   return await faunaClient.query(q.Delete(q.Ref(q.Collection("divi_crm"), id)));
 };
 
