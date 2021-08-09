@@ -71,11 +71,17 @@ const ProfileDetails = ({ contact }) => {
             </div>
           </div>
           <div className=" grid md:grid-cols-2 px-8 text-xl">
-            <button className="m-1.5 md:mx-4" onClick={deleteContact}>
-              <MdDeleteForever />
-            </button>
-            <button className="m-1.5 md:mx-4" onClick={editContact}>
+            <button
+              className="m-1.5 md:mx-4 text-green-700"
+              onClick={editContact}
+            >
               <MdModeEdit />
+            </button>
+            <button
+              className="m-1.5 md:mx-4 text-red-500"
+              onClick={deleteContact}
+            >
+              <MdDeleteForever />
             </button>
           </div>
         </div>
