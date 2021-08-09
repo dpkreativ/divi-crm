@@ -44,6 +44,7 @@ const updateContact = async (id, firstname, lastname, phone, mail, bio) => {
 
 const deleteContact = async (id) => {
   // TODO: write function to delete contact selected by id
+  return await faunaClient.query(q.Delete(q.Ref(q.Collection("divi_crm"), id)));
 };
 
 module.exports = {
