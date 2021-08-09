@@ -35,6 +35,14 @@ const ProfileDetails = ({ contact }) => {
     }
   };
 
+  const editContact = async () => {
+    try {
+      await router.push(`/profile/edit/${contact.id}`);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div>
       <Head>
@@ -68,7 +76,7 @@ const ProfileDetails = ({ contact }) => {
             <button className="m-1.5 md:mx-4" onClick={deleteContact}>
               <MdDeleteForever />
             </button>
-            <button className="m-1.5 md:mx-4">
+            <button className="m-1.5 md:mx-4" onClick={editContact}>
               <MdModeEdit />
             </button>
           </div>
