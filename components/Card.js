@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const Card = ({ contact }) => {
   const { firstname, lastname, phone } = contact.data;
@@ -7,10 +8,12 @@ const Card = ({ contact }) => {
     <div className="bg-purple-100 w-36 rounded-xl m-6 flex flex-col pb-4 justify-between items-center">
       <div className="w-20 h-20 border-2 border-red-400 rounded-full -mt-10 mx-auto flex items-center justify-center p-1">
         <div className="w-full h-full bg-gray-600 rounded-full overflow-hidden">
-          <img
+          <Image
             src="https://res.cloudinary.com/dpkreativ/image/upload/o_20/v1627300464/divi-crm/Profile_avatar_placeholder_large_rbnj5w.png"
             alt="profile image"
             className="object-cover w-full h-full"
+            width="100%"
+            height="100%"
           />
         </div>
       </div>

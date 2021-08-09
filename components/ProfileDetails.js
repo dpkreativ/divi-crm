@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import Head from "next/head";
 import Link from "next/link";
+import Image from "next/image";
 import {
   MdDeleteForever,
   MdEmail,
@@ -58,10 +59,12 @@ const ProfileDetails = ({ contact }) => {
           <div className="flex items-center">
             <div className="w-24 h-24 md:w-28 md:h-28 lg:w-36 lg:h-36 border-2 border-gray-500 rounded-full flex items-center justify-center p-1 mr-4">
               <div className="w-full h-full bg-gray-600 rounded-full overflow-hidden">
-                <img
+                <Image
                   src="https://res.cloudinary.com/dpkreativ/image/upload/o_20/v1627300464/divi-crm/Profile_avatar_placeholder_large_rbnj5w.png"
                   alt="profile image"
                   className="object-cover w-full h-full"
+                  width="100%"
+                  height="100%"
                 />
               </div>
             </div>
