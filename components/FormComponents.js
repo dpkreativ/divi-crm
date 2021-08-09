@@ -1,8 +1,16 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 
-const CustomForm = ({ defaultValues, children, onSubmit }) => {
-  const methods = useForm({ defaultValues });
+const CustomForm = ({ children, onSubmit, contact }) => {
+  const methods = useForm({
+    defaultValues: {
+      firstname: contact ? contact.data.firstname : "",
+      lastname: contact ? contact.data.lastname : "",
+      phone: contact ? contact.data.phone : "",
+      mail: contact ? contact.data.mail : "",
+      bio: contact ? contact.data.bio : "",
+    },
+  });
   const { handleSubmit } = methods;
 
   return (
