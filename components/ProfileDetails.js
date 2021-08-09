@@ -47,10 +47,10 @@ const ProfileDetails = ({ contact }) => {
   return (
     <div>
       <Head>
-        <title>{firstname}'s profile</title>
+        <title>{firstname}&apos;s profile</title>
       </Head>
       <main>
-        <Link href="/" className="cursor-pointer">
+        <Link href="/" className="cursor-pointer" passHref>
           <button className="mt-4 mb-8 flex items-center">
             <MdHome /> <div className="mx-2">Go to Home</div>
           </button>
@@ -62,9 +62,9 @@ const ProfileDetails = ({ contact }) => {
                 <Image
                   src="https://res.cloudinary.com/dpkreativ/image/upload/o_20/v1627300464/divi-crm/Profile_avatar_placeholder_large_rbnj5w.png"
                   alt="profile image"
-                  className="object-cover w-full h-full"
-                  width="100%"
-                  height="100%"
+                  className="object-cover"
+                  width="150%"
+                  height="150%"
                 />
               </div>
             </div>
@@ -90,7 +90,7 @@ const ProfileDetails = ({ contact }) => {
             <div className="phone-number flex items-center">
               <MdPhone />
               <div className="mx-2 text-lg">{phone}</div>
-              <Link href={`tel:${phone}`}>
+              <Link href={`tel:${phone}`} passHref>
                 <button className="bg-green-700 text-white rounded-full py-1 px-4 text-xs ml-2">
                   call
                 </button>
@@ -99,7 +99,7 @@ const ProfileDetails = ({ contact }) => {
             <div className="email flex items-center">
               <MdEmail />
               <div className="mx-2 text-lg">{mail}</div>
-              <Link href={`mailto:${mail}`}>
+              <Link href={`mailto:${mail}`} passHref>
                 <button className="bg-blue-700 text-white rounded-full py-1 px-4 text-xs ml-2">
                   send mail
                 </button>

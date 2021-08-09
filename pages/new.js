@@ -10,7 +10,7 @@ export default function Home() {
         <title>New Contact</title>
       </Head>
       <nav>
-        <Link href="/" className="cursor-pointer w-max">
+        <Link href="/" className="cursor-pointer w-max" passHref>
           <button className="mt-4 mb-8 flex items-center hover:text-green-500">
             <MdHome /> <div className="mx-2">Go to Home</div>
           </button>

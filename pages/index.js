@@ -15,7 +15,7 @@ export default function Home() {
 
       <nav className="mb-8 flex justify-between">
         <div className="logo font-bold">Divi-CRM</div>
-        <Link href="/new">
+        <Link href="/new" passHref>
           <button className="bg-green-700 text-white rounded-md shadow-md text-sm px-4 py-1 cursor-pointer">
             Add New
           </button>

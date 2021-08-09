@@ -24,7 +24,7 @@ const Card = ({ contact }) => {
         <div>{phone}</div>
       </div>
 
-      <Link href={`/profile/${contact.id}`}>
+      <Link href={`/profile/${contact.id}`} passHref>
         <button className="bg-gray-900 text-white px-4 py-1 cursor-pointer text-xs w-max rounded-lg mt-4">
           View Contact
         </button>
