@@ -8,13 +8,8 @@ import {
   MdHome,
   MdModeEdit,
   MdPhone,
-  MdWork,
 } from "react-icons/md";
-import {
-  VerticalTimeline,
-  VerticalTimelineElement,
-} from "react-vertical-timeline-component";
-import "react-vertical-timeline-component/style.min.css";
+import { TimelineItem, TimelineWrapper } from "./Timeline";
 
 const ProfileDetails = ({ contact }) => {
   const { firstname, lastname, phone, mail, bio, entries } = contact.data;
@@ -118,41 +113,14 @@ const ProfileDetails = ({ contact }) => {
           </div>
           <div className="entries">
             {/* TODO: use the time of editing or creating the entry as its ID, then sort the entry based on the ids and display by the most recent */}
-            <VerticalTimeline>
+            <TimelineWrapper>
               {entries &&
                 entries
                   .sort((a, b) => b._id - a._id)
                   .map((entry) => (
-                    <VerticalTimelineElement
-                      className="vertical-timeline-element--work"
-                      contentStyle={{
-                        background: "rgb(33, 150, 243)",
-                        color: "#fff",
-                      }}
-                      contentArrowStyle={{
-                        borderRight: "7px solid  rgb(33, 150, 243)",
-                      }}
-                      iconStyle={{
-                        background: "rgb(33, 150, 243)",
-                        color: "#fff",
-                      }}
-                      icon={<MdWork />}
-                      key={entry._id}
-                    >
-                      {entry.entry}
-                      <div className="grid justify-items-end">
-                        <div className="grid grid-cols-2 w-max gap-4 pt-4 text-xl">
-                          <button>
-                            <MdDeleteForever />
-                          </button>
-                          <button>
-                            <MdModeEdit />
-                          </button>
-                        </div>
-                      </div>
-                    </VerticalTimelineElement>
+                    <TimelineItem key={entry._id}>{entry.entry}</TimelineItem>
                   ))}
-            </VerticalTimeline>
+            </TimelineWrapper>
           </div>
         </section>
       </main>
