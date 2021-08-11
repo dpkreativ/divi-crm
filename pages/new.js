@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
-import { MdHome } from "react-icons/md";
+import { MdArrowBack } from "react-icons/md";
 import ContactForm from "../components/ContactForm";
 
 export default function Home() {
@@ -12,7 +12,7 @@ export default function Home() {
       <nav>
         <Link href="/" className="cursor-pointer w-max" passHref>
           <button className="mt-4 mb-8 flex items-center hover:text-green-500">
-            <MdHome /> <div className="mx-2">Go to Home</div>
+            <MdArrowBack /> <div className="mx-2">Go to Home</div>
           </button>
         </Link>
       </nav>
