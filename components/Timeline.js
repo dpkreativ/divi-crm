@@ -1,8 +1,8 @@
 import { MdChevronRight, MdDeleteForever, MdModeEdit } from "react-icons/md";
 
-const TimelineItem = ({ children, key }) => {
+const TimelineItem = ({ children }) => {
   return (
-    <div key={key} className="flex items-center mb-4">
+    <div className="flex items-center mb-4">
       <div className="border-2 -ml-3 text-sm rounded-full border-red-500 p-0.5 bg-white">
         <MdChevronRight />
       </div>
