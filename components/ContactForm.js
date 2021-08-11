@@ -6,7 +6,7 @@ const ContactForm = ({ contact }) => {
 
   const createContact = async (data) => {
     const { firstname, lastname, phone, mail, bio } = data;
-    const entries = [];
+    const entries = [{ _id: 0, entry: "created contact" }];
     try {
       await fetch("/api/createContact", {
         method: "POST",
