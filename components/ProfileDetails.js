@@ -5,7 +5,7 @@ import Image from "next/image";
 import {
   MdDeleteForever,
   MdEmail,
-  MdHome,
+  MdArrowBack,
   MdModeEdit,
   MdPhone,
 } from "react-icons/md";
@@ -47,7 +47,7 @@ const ProfileDetails = ({ contact }) => {
       <main>
         <Link href="/" className="cursor-pointer" passHref>
           <button className="mt-4 mb-8 flex items-center">
-            <MdHome /> <div className="mx-2">Go to Home</div>
+            <MdArrowBack /> <div className="mx-2">Go to Home</div>
           </button>
         </Link>
         <div className="profile-header flex items-center justify-between rounded-full bg-doodle-1 bg-cover bg-center bg-gray-200 shadow-lg">
@@ -97,14 +97,18 @@ const ProfileDetails = ({ contact }) => {
                 </button>
               </Link>
             </div>
-            <div className="email flex items-center">
-              <MdEmail />
-              <div className="mx-2 text-lg">{mail}</div>
-              <Link href={`mailto:${mail}`} passHref>
-                <button className="bg-blue-700 text-white rounded-full py-1 px-4 text-xs ml-2">
-                  send mail
-                </button>
-              </Link>
+            <div className="email grid items-center md:flex">
+              <div className="grid grid-cols-auto-2 items-center">
+                <MdEmail />
+                <div className="mx-2 text-lg">{mail}</div>
+              </div>
+              <div className="">
+                <Link href={`mailto:${mail}`} passHref>
+                  <button className="bg-blue-700 text-white rounded-full py-1 px-4 text-xs md:ml-2">
+                    send mail
+                  </button>
+                </Link>
+              </div>
             </div>
           </div>
           <h3 className="font-bold text-lg mt-2 md:mt-4">Bio</h3>
