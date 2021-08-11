@@ -5,7 +5,7 @@ const Card = ({ contact }) => {
   const { firstname, lastname, phone } = contact.data;
   const lastnameFirstLetter = lastname.split("")[0];
   return (
-    <div className="bg-purple-100 w-36 rounded-xl m-6 flex flex-col pb-4 justify-between items-center">
+    <div className="bg-purple-100 w-36 rounded-xl m-6 flex flex-col pb-4 justify-between items-center px-2">
       <div className="w-20 h-20 border-2 border-red-400 rounded-full -mt-10 mx-auto flex items-center justify-center p-1">
         <div className="w-full h-full bg-gray-600 rounded-full overflow-hidden">
           <Image
@@ -21,7 +21,7 @@ const Card = ({ contact }) => {
         <div className="font-bold text-lg mt-2">
           {firstname} <span>{lastnameFirstLetter}.</span>
         </div>
-        <div>{phone}</div>
+        <div className="text-sm">{phone}</div>
       </div>
 
       <Link href={`/profile/${contact.id}`} passHref>
