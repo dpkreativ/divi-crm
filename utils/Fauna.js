@@ -51,6 +51,12 @@ const updateContact = async (id, firstname, lastname, phone, mail, bio) => {
   );
 };
 
+const updateEntries = async (id, entries) => {
+  return await faunaClient.query(
+    q.Update(q.Ref(q.Collection("divi_crm"), id), { data: { entries } })
+  );
+};
+
 const deleteContact = async (id) => {
   return await faunaClient.query(q.Delete(q.Ref(q.Collection("divi_crm"), id)));
 };
@@ -60,5 +66,6 @@ module.exports = {
   getContacts,
   getContactById,
   updateContact,
+  updateEntries,
   deleteContact,
 };
