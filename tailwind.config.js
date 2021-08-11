@@ -10,6 +10,9 @@ module.exports = {
       fontFamily: {
         sans: ["Ubuntu"],
       },
+      gridTemplateColumns: {
+        "auto-2": "max-content auto",
+      },
     },
   },
   variants: {
