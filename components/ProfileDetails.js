@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import Head from "next/head";
 import Link from "next/link";
+import { useState } from "react";
 import Image from "next/image";
 import {
   MdDeleteForever,
@@ -10,8 +11,11 @@ import {
   MdPhone,
 } from "react-icons/md";
 import { TimelineItem, TimelineWrapper } from "./Timeline";
+import Modal from "./Modal";
 
 const ProfileDetails = ({ contact }) => {
+  const [showModal, setShowModal] = useState(false);
+
   const { firstname, lastname, phone, mail, bio, entries } = contact.data;
 
   const router = useRouter();
@@ -117,9 +121,15 @@ const ProfileDetails = ({ contact }) => {
         <section className="mt-8">
           <h2 className="font-bold text-xl md:text-2xl">Timeline</h2>
           <div>
-            <button className="bg-purple-700 text-white rounded-full py-1 px-4 text-sm mt-2 md:mt-4">
+            <button
+              className="bg-purple-700 text-white rounded-full py-1 px-4 text-sm mt-2 md:mt-4"
+              onClick={() => setShowModal(true)}
+            >
               Add new entry
             </button>
+            <Modal onClose={() => setShowModal(false)} show={showModal}>
+              Hello Divie
+            </Modal>
           </div>
           <div className="entries">
             {/* TODO: use the time of editing or creating the entry as its ID, then sort the entry based on the ids and display by the most recent */}
