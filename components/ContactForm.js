@@ -6,10 +6,18 @@ const ContactForm = ({ contact }) => {
 
   const createContact = async (data) => {
     const { firstname, lastname, phone, mail, bio } = data;
+    const entries = [];
     try {
       await fetch("/api/createContact", {
         method: "POST",
-        body: JSON.stringify({ firstname, lastname, phone, mail, bio }),
+        body: JSON.stringify({
+          firstname,
+          lastname,
+          phone,
+          mail,
+          bio,
+          entries,
+        }),
         headers: {
           "Content-Type": "application/json",
         },

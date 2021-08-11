@@ -2,10 +2,17 @@ const faunadb = require("faunadb");
 const faunaClient = new faunadb.Client({ secret: process.env.FAUNA_SECRET });
 const q = faunadb.query;
 
-const addNewContact = async (firstname, lastname, phone, mail, bio) => {
+const addNewContact = async (
+  firstname,
+  lastname,
+  phone,
+  mail,
+  bio,
+  entries
+) => {
   return await faunaClient.query(
     q.Create(q.Collection("divi_crm"), {
-      data: { firstname, lastname, phone, mail, bio },
+      data: { firstname, lastname, phone, mail, bio, entries },
     })
   );
 };

@@ -2,7 +2,7 @@ import { addNewContact } from "../../utils/Fauna";
 
 const handler = async (req, res) => {
   // write handler code
-  const { firstname, lastname, phone, mail, bio } = req.body;
+  const { firstname, lastname, phone, mail, bio, entries } = req.body;
   if (req.method !== "POST") {
     return res.status(405).json({ msg: "method not allowed" });
   }
@@ -13,7 +13,8 @@ const handler = async (req, res) => {
       lastname,
       phone,
       mail,
-      bio
+      bio,
+      entries
     );
     return res.status(200).json(newContact);
   } catch (error) {
