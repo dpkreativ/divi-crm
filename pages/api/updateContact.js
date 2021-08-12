@@ -5,7 +5,7 @@ export default async function handler(req, res) {
     return res.status(405).json({ msg: "Method not allowed" });
   }
 
-  const { id, firstname, lastname, phone, mail, bio } = req.body;
+  const { id, firstname, lastname, phone, mail, bio, entries } = req.body;
 
   try {
     const updated = await updateContact(
@@ -14,7 +14,8 @@ export default async function handler(req, res) {
       lastname,
       phone,
       mail,
-      bio
+      bio,
+      entries
     );
     return res.status(200).json(updated);
   } catch (error) {

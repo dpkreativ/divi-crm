@@ -15,8 +15,32 @@ import Modal from "./Modal";
 
 const ProfileDetails = ({ contact }) => {
   const [showModal, setShowModal] = useState(false);
+  const [entry, setEntry] = useState(contact.data);
+  console.log(entry);
+  const { firstname, lastname, phone, mail, bio, entries } = entry;
+  // console.log(firstname);
 
-  const { firstname, lastname, phone, mail, bio, entries } = contact.data;
+  const updateEntry = () => {
+    const tempEntry = { ...entry };
+    tempEntry.entries.push({ _id: entries.length, entry: "test new entry" });
+    setEntry(tempEntry);
+  };
+
+  const updateContact = async () => {
+    const id = contact.id;
+    try {
+      await fetch("/api/updateContact", {
+        method: "PUT",
+        body: JSON.stringify({ id, ...entry }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      router.reload();
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   const router = useRouter();
 
@@ -129,6 +153,12 @@ const ProfileDetails = ({ contact }) => {
             </button>
             <Modal onClose={() => setShowModal(false)} show={showModal}>
               Hello Divie
+              <button onClick={updateEntry} className="block bg-green-300">
+                Add new entry
+              </button>
+              <button onClick={updateContact} className="bg-yellow-300">
+                Update contact
+              </button>
             </Modal>
           </div>
           <div className="entries">
