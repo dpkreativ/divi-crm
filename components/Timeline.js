@@ -1,6 +1,6 @@
 import { MdChevronRight, MdDeleteForever, MdModeEdit } from "react-icons/md";
 
-const TimelineItem = ({ children }) => {
+const TimelineItem = ({ handleDelete, children }) => {
   return (
     <div className="flex items-center mb-4">
       <div className="border-2 -ml-3 text-sm rounded-full border-red-500 p-0.5 bg-white">
@@ -10,7 +10,7 @@ const TimelineItem = ({ children }) => {
         <div>{children}</div>
         <div className="grid justify-items-end">
           <div className="grid grid-cols-2 w-max gap-4 pt-4 text-xl">
-            <button className="text-red-500">
+            <button className="text-red-500" onClick={handleDelete}>
               <MdDeleteForever />
             </button>
             <button className="text-green-700">
