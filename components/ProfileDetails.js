@@ -24,6 +24,7 @@ const ProfileDetails = ({ contact }) => {
     const tempEntry = { ...entry };
     tempEntry.entries.push({ _id: entries.length, entry: "test new entry" });
     setEntry(tempEntry);
+    updateContact();
   };
 
   const updateContact = async () => {
@@ -155,9 +156,6 @@ const ProfileDetails = ({ contact }) => {
               Hello Divie
               <button onClick={updateEntry} className="block bg-green-300">
                 Add new entry
-              </button>
-              <button onClick={updateContact} className="bg-yellow-300">
-                Update contact
               </button>
             </Modal>
           </div>
