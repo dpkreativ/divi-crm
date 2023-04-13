@@ -1,22 +1,18 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  purge: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
-  darkMode: false, // or 'media' or 'class'
+  content: [
+    './src/pages/**/*.{js,ts,jsx,tsx}',
+    './src/components/**/*.{js,ts,jsx,tsx}',
+    './src/app/**/*.{js,ts,jsx,tsx}',
+  ],
   theme: {
     extend: {
-      backgroundImage: (theme) => ({
-        "doodle-1":
-          "url(https://res.cloudinary.com/dpkreativ/image/upload/o_10/v1627045399/divi-crm/doodlebg_k5w7bx.png)",
-      }),
-      fontFamily: {
-        sans: ["Ubuntu"],
-      },
-      gridTemplateColumns: {
-        "auto-2": "max-content auto",
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'gradient-conic':
+          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
     },
   },
-  variants: {
-    extend: {},
-  },
   plugins: [],
-};
+}

@@ -1,6 +1,8 @@
-module.exports = {
-  reactStrictMode: true,
-  images: {
-    domains: ["res.cloudinary.com"],
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  experimental: {
+    appDir: true,
   },
-};
+}
+
+module.exports = nextConfig
